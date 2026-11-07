@@ -60,18 +60,23 @@ This protocol applies when ending a Beads implementation workflow. It is subordi
 
 ## Build & Test
 
-_Add your build and test commands here_
-
 ```bash
-# Example:
-# npm install
-# npm test
+npm run dev     # vývojový server
+npm test        # jednotkové testy
+npm run check   # brána kvality: typy, lint, testy, OpenSpec, build
 ```
 
 ## Architecture Overview
 
-_Add a brief overview of your project architecture_
+Appdílna, „Přání s talismanem“. Zdroj pravdy je [docs/ZADANI.md](docs/ZADANI.md), odchylky patří do [docs/ROZHODNUTI.md](docs/ROZHODNUTI.md), známá omezení do [docs/ZNAME-PROBLEMY.md](docs/ZNAME-PROBLEMY.md).
+
+Aplikace má dvě zóny, určené v `lib/zones.ts`: veřejnou (indexovatelnou) a soukromou (`/p`, `/hotovo`, `/admin`, `/api`). Fakta o produktu žijí v `lib/content/`.
 
 ## Conventions & Patterns
 
-_Add your project-specific conventions here_
+- Kód a komentáře: komentáře a texty UI česky, názvy proměnných a commity anglicky.
+- Workflow: OpenSpec určuje CO a PROČ (`openspec/`), beads pořadí a stav (`bd ready`). Větší funkce začíná návrhem v `openspec/changes/`.
+- Každá změna musí splnit požadavky `security` a `discoverability` a projít `npm run check`.
+- Žádné vymyšlené údaje: recenze, počty prodejů ani falešný nedostatek zboží.
+- Úkoly se štítkem `human` dělá majitelka. Na server, DNS a ostré klíče se bez jejího výslovného souhlasu nesahá.
+- Commity a push jen na výslovný pokyn (profil Conservative).
