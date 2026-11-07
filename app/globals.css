@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-night: #14122b;
+  --color-violet: #2a1f4f;
+  --color-gold: #f2c14e;
+  --color-amber: #e8963a;
+  --color-cream: #fff6e5;
+  --color-coral: #ff7a6b;
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-night);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* Záře svíčky bez 3D: živá scéna přijde ve fázi 1 */
+.flame {
+  background: radial-gradient(ellipse at 50% 70%, #fff6e5 0%, #f2c14e 40%, #e8963a 70%, transparent 75%);
+  border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+  box-shadow: 0 0 60px 24px rgb(242 193 78 / 0.35);
+  animation: flicker 2.4s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { transform: scaleY(1) rotate(-1deg); }
+  50% { transform: scaleY(1.08) rotate(1.5deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .flame { animation: none; }
+}
