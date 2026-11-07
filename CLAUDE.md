@@ -79,5 +79,6 @@ Aplikace má dvě zóny, určené v `lib/zones.ts`: veřejnou (indexovatelnou) a
 - Každá změna musí splnit požadavky `security`, `discoverability` a `performance` a projít `npm run check`, včetně rozpočtů.
 - S databází se pracuje až na serveru, lokálně se proti ní nic nespouští.
 - Žádné vymyšlené údaje: recenze, počty prodejů ani falešný nedostatek zboží.
+- Repo je veřejné. `docs/ZADANI.md` je jen lokálně (gitignore) a obchodní plány, marketing, IP serveru ani tajné klíče do sledovaných souborů nepatří. Neveřejné poznámky jdou do `docs/private/`, adresa serveru je v `.env` jako `DEPLOY_HOST`.
 - Úkoly se štítkem `human` dělá majitelka. Na server, DNS a ostré klíče se bez jejího výslovného souhlasu nesahá.
 - Commity a push jen na výslovný pokyn (profil Conservative).

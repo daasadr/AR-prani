@@ -6,6 +6,10 @@ coverage/
 *.tsbuildinfo
 next-env.d.ts
 
+# Neveřejné: zadání s obchodním a marketingovým plánem. Repo je veřejné.
+docs/ZADANI.md
+docs/private/
+
 # Tajné klíče jen v prostředí; vzor je v .env.example
 .env
 .env.*

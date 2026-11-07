@@ -18,3 +18,4 @@ Formát: datum, rozhodnutí, důvod. Kdo rozhodl: **majitelka**, nebo **vývoj**
 12. **Výkon by design (majitelka).** Třetí trvalý požadavek vedle security a SEO/GEO/AEO. Vlastní rozpočet JS je 140 kB gzip, přísnější než 200 kB v zadání, aby se rychlost nezhoršovala postupně.
 13. **S databází se pracuje až na serveru (majitelka).** Úkol s DB schématem a tím i Stripe webhook čekají na přístup k serveru.
 14. **Práce běží ve větvi `foundation` (vývoj).** Do `main` se dostane přes GitHub repo, které založí majitelka.
+15. **Veřejné repo bez zadání a IP serveru (majitelka).** `docs/ZADANI.md` s obchodním a marketingovým plánem je jen lokálně a z historie byl odstraněn před prvním pushem. Adresa serveru je v `.env` jako `DEPLOY_HOST`. E-mail v commitech veřejný být může.
