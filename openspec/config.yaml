@@ -9,13 +9,13 @@ context: |
   odchylky se zapisují do docs/ROZHODNUTI.md, známá omezení do docs/ZNAME-PROBLEMY.md.
   Stack: Next.js (App Router), TypeScript, Tailwind, three.js, model-viewer,
   PostgreSQL + Drizzle, Stripe Checkout, Resend, Docker za nginx na VPS.
-  Trvalé požadavky pro každou změnu: specs/security a specs/discoverability.
+  Trvalé požadavky pro každou změnu: specs/security, specs/discoverability a specs/performance.
   Žádné vymyšlené údaje (recenze, počty prodejů, nedostatek zboží).
 
 rules:
   proposal:
     - Uveď, kterou kapitolu docs/ZADANI.md změna naplňuje.
-    - Uveď sekci „Dopad na bezpečnost“ a „Dopad na SEO/GEO/AEO“, i kdyby byl dopad žádný.
+    - Uveď sekci „Dopad na bezpečnost“, „Dopad na SEO/GEO/AEO“ a „Dopad na výkon“, i kdyby byl dopad žádný.
   tasks:
     - Každý úkol odkazuje na beads ID (app-xxx). Stav se vede v beads, ne v tasks.md.
     - Úkol s kódem obsahuje i způsob ověření (test nebo kontrola na zařízení).

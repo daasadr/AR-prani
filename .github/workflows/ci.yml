@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0 # gitleaks prochází celou historii
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Typy, testy, OpenSpec, build a rozpočty
+        run: npm run check
+      - name: Zranitelné produkční závislosti
+        run: npm audit --omit=dev --audit-level=high
+      - name: Tajné klíče v kódu
+        run: |
+          curl -sSfL https://github.com/gitleaks/gitleaks/releases/download/v8.28.0/gitleaks_8.28.0_linux_x64.tar.gz | tar -xz gitleaks
+          ./gitleaks git --redact --no-banner .
+      # Zatím jen hlásí, viz docs/ZNAME-PROBLEMY.md. Po měření na testovací doméně se má zapnout natvrdo (app-dlr.9).
+      - name: Lighthouse (mobil)
+        continue-on-error: true
+        run: npx --yes @lhci/cli@0.15.1 autorun

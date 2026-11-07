@@ -12,7 +12,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "spec": "openspec validate --all --strict --no-interactive",
-    "check": "npm run typecheck && npm test && npm run spec && npm run build"
+    "check": "npm run typecheck && npm test && npm run spec && npm run build && npm run budgets",
+    "budgets": "node scripts/check-budgets.mjs"
   },
   "dependencies": {
     "next": "^16.4.5",

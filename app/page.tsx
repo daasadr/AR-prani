@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { BRAND, FAQ, OFFERS, VALIDITY_MONTHS } from "@/lib/content/product";
 import { buildJsonLd, serializeJsonLd, SITE_URL } from "@/lib/seo";
 
@@ -54,9 +53,10 @@ export default function HomePage() {
           <p className="mx-auto mt-6 max-w-xl text-lg text-cream/85">
             Přání, které si nejen přečteš. Sfoukneš svíčku a dostaneš talisman štěstí, který si uložíš do telefonu.
           </p>
-          <Link href="/vytvorit" className="mt-8 inline-block rounded-full bg-gold px-8 py-4 text-lg font-semibold text-night hover:bg-amber">
+          {/* Obyčejný odkaz: úvodní stránka nemá kvůli jednomu tlačítku přednačítat další trasu. */}
+          <a href="/vytvorit" className="mt-8 inline-block rounded-full bg-gold px-8 py-4 text-lg font-semibold text-night hover:bg-amber">
             Vytvořit přání · {OFFERS[0].priceCzk} Kč
-          </Link>
+          </a>
         </section>
 
         <section id="jak-to-funguje" className="bg-violet">

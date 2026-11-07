@@ -14,8 +14,10 @@
 
 ## Technická omezení
 
-- **Rozpočet JS je skoro vyčerpaný:** úvodní stránka má 178 kB gzip z limitu 200 kB (měřeno 7. 11. 2026 přes `next start`), a to ještě bez 3D. Živá ukázka se proto musí načítat až po interakci.
-- **`NEXT_PUBLIC_SITE_URL` a `INDEXING_ENABLED` se u statických stránek zapékají při buildu.** Canonical, JSON-LD a meta robots se u nich za běhu nezmění, proto se musí nastavit při sestavení Docker image a pro ostrou doménu udělat nový build. Výchozí stav bez proměnných je bezpečný (`noindex`).
+- **Většinu JS tvoří samotný framework:** úvodní stránka má okolo 135 kB gzip i bez vlastní interaktivity, takže kód 3D ukázky se musí načítat až po interakci. Aktuální hodnoty vypisuje `npm run check`.
+- **Lighthouse v CI zatím neblokuje změny, což je dočasná odchylka od `specs/performance`.** Lokální měření úvodní stránky (Windows, localhost, 7. 11. 2026) se podle metody rozchází. Simulace: výkon 94–96, LCP 2,6–2,9 s, TBT 100 ms. Skutečné zpomalení: výkon 87–90, LCP 1,5–1,6 s, TBT 380–490 ms. Limity LCP 2,5 s a TBT 200 ms proto zatím nejsou spolehlivě splněné a rozhodne měření na testovací doméně a reálném Androidu. Závazné jsou zatím rozpočty v `npm run check`.
+- **`NEXT_PUBLIC_SITE_URL` a `INDEXING_ENABLED` musí být nastavené při buildu i za běhu.** Canonical, JSON-LD a meta robots se u statických stránek zapékají při buildu, `robots.txt`, sitemap a `llms.txt` je čtou za běhu. Pro ostrou doménu je potřeba nový build. Výchozí stav bez proměnných je bezpečný (`noindex`).
+- **`experimental.inlineCss`** je v Next.js experimentální volba. Přidává asi 5 kB do HTML a odstraňuje blokující CSS. Při problémech ji lze bez dopadu na funkce vypnout.
 - **CSP je zatím jen report-only** a povoluje `unsafe-inline` pro skripty. Před spuštěním se musí zpřísnit (app-dlr.9).
 
 ## Omezení, která ještě nejsou ověřená na zařízení

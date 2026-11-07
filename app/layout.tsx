@@ -7,8 +7,11 @@ import "./globals.css";
 
 // next/font stáhne fonty při buildu a servíruje je z vlastní domény, Google CDN se za běhu nevolá.
 // latin-ext obsahuje české znaky (ě š č ř ž ů ď ť ň).
-const fraunces = Fraunces({ subsets: ["latin", "latin-ext"], variable: "--font-fraunces", display: "swap" });
-const inter = Inter({ subsets: ["latin", "latin-ext"], variable: "--font-inter", display: "swap" });
+// Výkon: nadpisy používají jen řez 600, takže stačí statický soubor místo celého variabilního fontu.
+// Přednačítá se jen font hlavního nadpisu (LCP). Inter dorazí bez preload a výpadek pokryje upravený záložní font.
+// display: swap, ne optional: optional zlepšil LCP jen o 0,1 s a zákazník by mohl při první návštěvě přijít o značkové písmo.
+const fraunces = Fraunces({ subsets: ["latin", "latin-ext"], weight: "600", variable: "--font-fraunces", display: "swap" });
+const inter = Inter({ subsets: ["latin", "latin-ext"], variable: "--font-inter", display: "swap", preload: false });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

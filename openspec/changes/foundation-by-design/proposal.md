@@ -6,13 +6,15 @@ Prodejní verze má vzniknout za 14 dní a důvěra je jediný kapitál značky.
 
 - Nová capability `security`: přání jako tajný odkaz, zacházení s platbami a osobními údaji, hlavičky, ochrana API a kontroly v CI.
 - Nová capability `discoverability`: SEO, GEO a AEO, tedy obsah vykreslený na serveru, strukturovaná data, přímé odpovědi, pravidla pro roboty a ochrana soukromých stránek.
-- Automatická brána `npm run check`, která obojí kontroluje v CI i lokálně.
+- Nová capability `performance`: co nejrychlejší načítání a fungování, s automaticky hlídanými rozpočty.
+- Automatická brána `npm run check` a CI, které to kontrolují lokálně i při každé změně.
 
 ## Capabilities
 
 ### New Capabilities
 - `security`: závazná bezpečnostní pravidla pro všechny části produktu.
 - `discoverability`: závazná pravidla pro SEO, GEO a AEO.
+- `performance`: závazné rozpočty a pravidla pro rychlost načítání a běhu.
 
 ### Modified Capabilities
 Žádné.
@@ -26,3 +28,6 @@ Zavádí základní pravidla, viz `specs/security/spec.md`.
 
 ### Dopad na SEO/GEO/AEO
 Zavádí základní pravidla, viz `specs/discoverability/spec.md`.
+
+### Dopad na výkon
+Zavádí rozpočty a měření, viz `specs/performance/spec.md`.

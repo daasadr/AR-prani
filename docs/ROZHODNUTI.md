@@ -15,3 +15,6 @@ Formát: datum, rozhodnutí, důvod. Kdo rozhodl: **majitelka**, nebo **vývoj**
 9. **Roboti smí na `/p/` a `/hotovo/`, indexaci brání `X-Robots-Tag: noindex` (vývoj).** Upřesnění kap. 10. Zákaz v `robots.txt` by robotovi zabránil hlavičku přečíst a URL by se přesto mohla dostat do indexu. `robots.txt` navíc veřejně vypisuje cesty.
 10. **`/hotovo/[id]` používá náhodný neuhodnutelný token, ne ID objednávky (vývoj).** Upřesnění kap. 4. Stránka ukazuje odkaz na přání, takže se k ní přistupuje stejně opatrně jako k přání samotnému.
 11. **Projekt je na disku C: (vývoj).** Disk D: je plný (0 GB volných), viz `ZNAME-PROBLEMY.md`.
+12. **Výkon by design (majitelka).** Třetí trvalý požadavek vedle security a SEO/GEO/AEO. Vlastní rozpočet JS je 140 kB gzip, přísnější než 200 kB v zadání, aby se rychlost nezhoršovala postupně.
+13. **S databází se pracuje až na serveru (majitelka).** Úkol s DB schématem a tím i Stripe webhook čekají na přístup k serveru.
+14. **Práce běží ve větvi `foundation` (vývoj).** Do `main` se dostane přes GitHub repo, které založí majitelka.

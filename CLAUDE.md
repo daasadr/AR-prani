@@ -63,7 +63,7 @@ This protocol applies when ending a Beads implementation workflow. It is subordi
 ```bash
 npm run dev     # vývojový server
 npm test        # jednotkové testy
-npm run check   # brána kvality: typy, lint, testy, OpenSpec, build
+npm run check   # brána kvality: typy, testy, OpenSpec, build, rozpočty
 ```
 
 ## Architecture Overview
@@ -76,7 +76,8 @@ Aplikace má dvě zóny, určené v `lib/zones.ts`: veřejnou (indexovatelnou) a
 
 - Kód a komentáře: komentáře a texty UI česky, názvy proměnných a commity anglicky.
 - Workflow: OpenSpec určuje CO a PROČ (`openspec/`), beads pořadí a stav (`bd ready`). Větší funkce začíná návrhem v `openspec/changes/`.
-- Každá změna musí splnit požadavky `security` a `discoverability` a projít `npm run check`.
+- Každá změna musí splnit požadavky `security`, `discoverability` a `performance` a projít `npm run check`, včetně rozpočtů.
+- S databází se pracuje až na serveru, lokálně se proti ní nic nespouští.
 - Žádné vymyšlené údaje: recenze, počty prodejů ani falešný nedostatek zboží.
 - Úkoly se štítkem `human` dělá majitelka. Na server, DNS a ostré klíče se bez jejího výslovného souhlasu nesahá.
 - Commity a push jen na výslovný pokyn (profil Conservative).
